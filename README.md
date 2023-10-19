@@ -1,10 +1,13 @@
-# Créer un environnement virtuel pour executer le programme:
 
-### Ouvre un terminal , placez vous dans le répertoire pour créer votre environnement virtuel avec la commande:
-pyhon3 -m vend env
+# Créer un environnement virtuel pour exécuter le programme :
 
-### Récupérer les paquet nécessaire au bon fonctionnement du programme BookToScrapped.py
-pip install -r requirements.txt
+Pour exécuter le programme `BookToScrapped.py`, il est recommandé de créer un environnement virtuel Python pour isoler les dépendances du projet.
 
-### Une fois l’environnement crée et les paquets installé dans celui-ci vous pouvez exécuter le programme BookToScrapped.py
-Python3 BookToScrapped.py
+### Étapes pour créer et activer l'environnement virtuel :
+
+1. **Ouvrir un terminal :** Ouvrez un terminal ou une invite de commande.
+
+2. **Naviguer vers le répertoire du projet :** Utilisez la commande `cd` pour vous déplacer vers le répertoire où se trouve votre fichier `requirements.txt` et `BookToScrapped.py`.
+
+3. **Créer un environnement virtuel :** Utilisez la commande suivante pour créer un environnement virtuel nommé "env" :
+   python3 -m venv env
