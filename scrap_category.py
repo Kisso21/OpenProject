@@ -41,7 +41,7 @@ def scrap_all_urlBooks_in_categorie(url_category):
     urlCategory = url_category.replace('index.html', '')
     page = reponse.content
     soup = BeautifulSoup(page, "html.parser")
-    book_liste_categorie = scrap_all_urlBook_on_page(url_category)
+    book_liste_category = scrap_all_urlBook_on_page(url_category)
 
     while soup.find('li', class_='next'):
         qPage = soup.find('li', class_='next')
@@ -49,12 +49,47 @@ def scrap_all_urlBooks_in_categorie(url_category):
             pageNext = link.get('href')
             nextUrl = urlCategory + pageNext
         pageScrapped = scrap_all_urlBook_on_page(nextUrl)
-        book_liste_categorie += pageScrapped
+        book_liste_category += pageScrapped
         reponseNextUrl = requests.get(nextUrl)
         pageNextUrl = reponseNextUrl.content
         soup = BeautifulSoup(pageNextUrl, "html.parser")
 
-    return book_liste_categorie
+    return book_liste_category
+
+def img_download(url_img,infoBook):
+    response = requests.get(url_img)
+    image = open(name_book + '.jpg', "wb")
+    image.write(response.content)
+    image.close()
+
+def write_csv_img(nameCategory,infoBook):
+    path_csv = "BookToScrap/" + nameCategory + "/"
+    header = ['Product page url', 'Universal product code (upc)', 'Title', 'Price including tax',
+              'Price excluding tax', 'Number available', 'Product description', 'Category', 'Review_rating',
+              'Image url']
+    with open(path_csv + nameCategory + ".csv", 'w') as fichier_csv:
+            writer = csv.writer(fichier_csv, delimiter=';')
+            writer.writerow(header)
+            for category, bookInfo in infoBook.items():
+                writer.writerow(bookInfo)
+                response = requests.get(bookInfo[9])
+                image = open(path_csv + bookInfo[2] + '.jpg', "wb")
+                image.write(response.content)
+                image.close()
+def all_book_sort_category():
+    nameUrl_category = scrap_name_and_url_category()
+
+    # Recupération de toutes les données du site
+    bookToScrapAll = {}
+    for nameCategory, urlCategory in nameUrl_category.items():
+        allBook_in_category = scrap_all_urlBooks_in_categorie(urlCategory)
+        bookToScrapAll[nameCategory] = {}
+        for book in allBook_in_category:
+            bookTemp = scrap_book(book)
+            bookToScrapAll[nameCategory][bookTemp[2]] = bookTemp
+    return bookToScrapAll
+
+
 
 
 
