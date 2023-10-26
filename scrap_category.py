@@ -56,12 +56,6 @@ def scrap_all_urlBooks_in_categorie(url_category):
 
     return book_liste_category
 
-def img_download(url_img,infoBook):
-    response = requests.get(url_img)
-    image = open(name_book + '.jpg', "wb")
-    image.write(response.content)
-    image.close()
-
 def write_csv_img(nameCategory,infoBook):
     path_csv = "BookToScrap/" + nameCategory + "/"
     header = ['Product page url', 'Universal product code (upc)', 'Title', 'Price including tax',
