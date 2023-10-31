@@ -1,7 +1,7 @@
 
 # Créer un environnement virtuel pour exécuter le programme :
 
-Pour exécuter le programme `BookToScrapped.py`, il est recommandé de créer un environnement virtuel Python pour isoler les dépendances du projet.
+Pour exécuter le programme `Book_To_Scrapped.py`, il est recommandé de créer un environnement virtuel Python pour isoler les dépendances du projet.
 
 ### Étapes pour créer et activer l'environnement virtuel :
 
@@ -27,4 +27,4 @@ pip install -r requirements.txt
 ### Exécuter le programme BookToScrapped.py :
 
 Une fois que l'environnement virtuel est créé et que les dépendances sont installées, vous pouvez exécuter le programme Book_To_Scrapped.py en utilisant la commande suivante :  
-python3 BookToScrapped.py
+python3 Book_To_Scrapped.py
