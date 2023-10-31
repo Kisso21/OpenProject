@@ -7,7 +7,7 @@ Pour exécuter le programme `Book_To_Scrapped.py`, il est recommandé de créer 
 
 1. **Ouvrir un terminal :** Ouvrez un terminal ou une invite de commande.
 
-2. **Naviguer vers le répertoire du projet :** Utilisez la commande `cd` pour vous déplacer vers le répertoire où se trouve le fichier `requirements.txt` et `BookToScrapped.py`.
+2. **Naviguer vers le répertoire du projet :** Utilisez la commande `cd` pour vous déplacer vers le répertoire où se trouve le fichier `requirements.txt` et `Book_To_Scrapped.py`.
 
 3. **Créer un environnement virtuel :** Utilisez la commande suivante pour créer un environnement virtuel nommé "env" :  
    python3 -m venv env
